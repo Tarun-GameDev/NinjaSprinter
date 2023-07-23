@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Player : MonoBehaviour
 {
@@ -10,20 +11,38 @@ public class Player : MonoBehaviour
     [SerializeField] Vector3 crouchOffset;
     Rigidbody rb;
     [SerializeField]
+    LayerMask groundLayer;
+    [SerializeField] float raycastDistance = 1f;
+    [SerializeField]
     CapsuleCollider normalCol,crouchCol;
-    [SerializeField] bool gameOver = false;
+    [HideInInspector]
+    public bool gameOver = false;
     [SerializeField] bool levelCompleted = false;
     [SerializeField] Animator animator;
     [SerializeField] GameObject playerModel;
     [SerializeField] ParticleSystem playerDeadEffect;
+    [SerializeField] Transform gunTarget;
+
+
+    int currentHealth = 100, maxHealth = 100;
+    TimeManager timeManager;
 
     void Start()
     {
         if(rb == null)
             rb = GetComponent<Rigidbody>();
-        if (normalCol == null)
-            normalCol = GetComponent<CapsuleCollider>();
+
+        if (timeManager == null)
+            timeManager = TimeManager.instance;
         gameOver = false;
+        currentHealth = maxHealth;
+
+        Invoke("faj", 1f);
+    }
+
+    void faj()
+    {
+        gunTarget.localPosition = new Vector3(1.633f, 1.153f, -.49f);
     }
 
     private void Update()
@@ -31,18 +50,43 @@ public class Player : MonoBehaviour
         if (gameOver || levelCompleted)
             return;
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        bool isGrounded = CheckGround();
+
+        #region PcCOntrollers
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             Jump();
+            DisableSlowMotion();
         }
 
-        if(Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S))
         {
             StartCoroutine(Crouch());
+            DisableSlowMotion();
+        }
+        #endregion
+
+        #region AndroidControllers
+        if (CrossPlatformInputManager.GetButtonDown("Jump") && isGrounded)
+        {
+            Jump();
+            DisableSlowMotion();
         }
 
+        if (CrossPlatformInputManager.GetButtonDown("Crouch"))
+        {
+            StartCoroutine(Crouch());
+            DisableSlowMotion();
+        }
+        #endregion
     }
 
+    void DisableSlowMotion()
+    {
+        if (timeManager != null)
+            if (timeManager.InSlowMotion)
+                timeManager.StopSlowMotion();
+    }
 
     void FixedUpdate()
     {
@@ -71,6 +115,16 @@ public class Player : MonoBehaviour
         crouchCol.enabled = false;
 
     }
+    private bool CheckGround()
+    {
+        Ray ray = new Ray(transform.position, Vector3.down);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, raycastDistance, groundLayer))
+        {
+            return true;
+        }
+        return false;
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -85,9 +139,19 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+            LevelFailed();
+    }
+
     void LevelFailed()
     {
         gameOver = true;
+        rb.isKinematic = true;
+        normalCol.isTrigger = true;
+        crouchCol.isTrigger = true;
         playerModel.SetActive(false);
         if (playerDeadEffect != null)
             Instantiate(playerDeadEffect, transform.position, Quaternion.identity);

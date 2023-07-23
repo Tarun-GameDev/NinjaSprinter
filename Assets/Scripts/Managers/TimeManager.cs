@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class TimeManager : MonoBehaviour
 {
@@ -8,6 +10,10 @@ public class TimeManager : MonoBehaviour
     private float startFixedDeltaTime;
     public bool InSlowMotion = false;
     [SerializeField] GameObject slowMotionVolume;
+
+
+    float currentslowMoResetTimer,maxSlowMoReseTimer = 3f;
+    bool slowMoReset = false;
 
     public void Awake()
     {
@@ -30,6 +36,18 @@ public class TimeManager : MonoBehaviour
         Time.fixedDeltaTime = startFixedDeltaTime;
     }
 
+    private void Update()
+    {
+        if (currentslowMoResetTimer <= 0f && !slowMoReset)
+        {
+            StopSlowMotion();
+            slowMoReset = true;
+        }
+        if (currentslowMoResetTimer >= 0f)
+            currentslowMoResetTimer -= Time.unscaledDeltaTime;
+
+    }
+
     public void StartSlowMotion()
 	{
         InSlowMotion = true;
@@ -38,7 +56,11 @@ public class TimeManager : MonoBehaviour
 
         if (slowMotionVolume != null)
             slowMotionVolume.SetActive(true);
+
+        currentslowMoResetTimer = maxSlowMoReseTimer;
+        slowMoReset = false;
 	}
+    
 
 	public void StopSlowMotion()
     {
