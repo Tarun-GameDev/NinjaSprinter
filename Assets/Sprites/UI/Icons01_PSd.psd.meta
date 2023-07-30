@@ -132,10 +132,10 @@ TextureImporter:
       name: ShootIcon
       rect:
         serializedVersion: 2
-        x: 4
-        y: 402
-        width: 93
-        height: 94
+        x: 20
+        y: 421
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,10 +153,10 @@ TextureImporter:
       name: SlideIcon
       rect:
         serializedVersion: 2
-        x: 104
-        y: 402
-        width: 94
-        height: 96
+        x: 225
+        y: 427
+        width: 150
+        height: 148
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,10 +174,10 @@ TextureImporter:
       name: JumpIcon
       rect:
         serializedVersion: 2
-        x: 204
-        y: 403
-        width: 93
-        height: 96
+        x: 421
+        y: 424
+        width: 149
+        height: 148
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

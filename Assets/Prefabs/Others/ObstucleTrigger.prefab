@@ -253,5 +253,5 @@ MonoBehaviour:
   emmisiveLine: {fileID: 7601931624782914100}
   lineBrokeEffect: {fileID: 8316775044453880115, guid: fa85a0b1a59c5504cb0217a9cc0878c0,
     type: 3}
-  procedural: 1
+  procedural: 0
   _endPoint: {fileID: 0}

@@ -12,9 +12,13 @@ public class Player : MonoBehaviour
     Rigidbody rb;
     [SerializeField]
     LayerMask groundLayer;
+    bool isGrounded = true;
     [SerializeField] float raycastDistance = 1f;
     [SerializeField]
     CapsuleCollider normalCol,crouchCol;
+    bool crouching = false;
+    [SerializeField]
+    ParticleSystem dustEffect;
     [HideInInspector]
     public bool gameOver = false;
     [SerializeField] bool levelCompleted = false;
@@ -23,6 +27,15 @@ public class Player : MonoBehaviour
     [SerializeField] ParticleSystem playerDeadEffect;
     [SerializeField] Transform gunTarget;
 
+    [Header("Tyre Obstucel")]
+    [SerializeField] Transform tyreSpawnPos;
+    [SerializeField] GameObject tyrePrefab;
+
+    [Header("Audio")]
+    [SerializeField] AudioSource jumpAudio;
+    [SerializeField] AudioSource crouchAudio;
+    [SerializeField] AudioSource levelWinAudio;
+    [SerializeField] AudioSource levelFailedAudio;
 
     int currentHealth = 100, maxHealth = 100;
     TimeManager timeManager;
@@ -50,10 +63,10 @@ public class Player : MonoBehaviour
         if (gameOver || levelCompleted)
             return;
 
-        bool isGrounded = CheckGround();
+         isGrounded = CheckGround();
 
         #region PcCOntrollers
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if ((Input.GetKeyDown(KeyCode.Space) && isGrounded))
         {
             Jump();
             DisableSlowMotion();
@@ -67,7 +80,7 @@ public class Player : MonoBehaviour
         #endregion
 
         #region AndroidControllers
-        if (CrossPlatformInputManager.GetButtonDown("Jump") && isGrounded)
+        if ((CrossPlatformInputManager.GetButtonDown("Jump") && isGrounded))
         {
             Jump();
             DisableSlowMotion();
@@ -99,6 +112,8 @@ public class Player : MonoBehaviour
 
     void Jump()
     {
+        if (jumpAudio != null)
+            jumpAudio.Play();
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         if (animator != null)
             animator.SetTrigger("Jump");
@@ -106,13 +121,20 @@ public class Player : MonoBehaviour
 
     IEnumerator Crouch()
     {
-        crouchCol.enabled = true;
-        normalCol.enabled = false;
+        if (crouchAudio != null)
+            crouchAudio.Play();
         if (animator != null)
             animator.SetTrigger("Slide");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.15f);
+        if (dustEffect != null && isGrounded)
+            dustEffect.Play();
+        crouchCol.enabled = true;
+        normalCol.enabled = false;
+        crouching = true;
+        yield return new WaitForSeconds(.85f);
         normalCol.enabled = true;
         crouchCol.enabled = false;
+        crouching = false;
 
     }
     private bool CheckGround()
@@ -137,13 +159,18 @@ public class Player : MonoBehaviour
                 LevelFailed();
             }
         }
+
+        if(collision.collider.CompareTag("Enemy") && crouching)
+        {
+            collision.collider.GetComponent<EnemyHealth>().Dead();
+        }
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         if (currentHealth <= 0)
-            LevelFailed();
+                LevelFailed();
     }
 
     void LevelFailed()
@@ -155,12 +182,16 @@ public class Player : MonoBehaviour
         playerModel.SetActive(false);
         if (playerDeadEffect != null)
             Instantiate(playerDeadEffect, transform.position, Quaternion.identity);
+        if (levelFailedAudio != null)
+            levelFailedAudio.Play();
         LevelManager.instance.uiManager.LevelFailed();
     }
 
     public void LevelCompleted()
     {
         levelCompleted = true;
+        if (levelWinAudio != null)
+            levelWinAudio.Play();
         animator.SetBool("move", false);
         animator.SetTrigger("Finish");
     }
@@ -173,5 +204,10 @@ public class Player : MonoBehaviour
         }
         else
             StartCoroutine(Crouch());
+    }
+
+    public void SpawnTyre()
+    {
+        Instantiate(tyrePrefab, tyreSpawnPos.position, Quaternion.identity);
     }
 }

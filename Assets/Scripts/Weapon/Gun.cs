@@ -42,14 +42,15 @@ public class Gun : MonoBehaviour
     bool resetedWeight = false;
 
     TimeManager timeManager;
+    AudioManager audioManager;
 
     private void Start()
     {
         //gameManager = GameManager.instance;
         //pcControllersOn = gameManager.PCControllersOn;
         timeManager = TimeManager.instance;
+        audioManager = AudioManager.instance;
 
-        Invoke("Delay", .15f);
         if(playerIk != null)
             playerIk.weight = 0f;
     }
@@ -151,7 +152,7 @@ public class Gun : MonoBehaviour
             if(enemyAnimator != null)
                 enemyAnimator.SetTrigger("Shoot");
 
-        }   
+        }
         /*
         else if(playerEquipped)
         {
@@ -161,6 +162,9 @@ public class Gun : MonoBehaviour
                 playerAnimator.SetTrigger("Shoot");
             }    
         }*/
+
+        if (audioManager != null)
+            audioManager.Play("GunShoot");
 
         if (muzzleFlash != null)
             muzzleFlash.Play();

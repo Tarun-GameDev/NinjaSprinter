@@ -37,7 +37,7 @@ public class EnemyHealth : MonoBehaviour
     }
 
 
-    void Dead()
+    public void Dead()
     {
         enemyDead = true;
         if (deadEffect != null)

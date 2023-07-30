@@ -16,10 +16,12 @@ public class GlassBreak : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             triggered = true;
+            
             if (glassModel != null)
                 glassModel.SetActive(false);
             if (glassBreakParticle != null)
                 Instantiate(glassBreakParticle, transform.position, Quaternion.identity);
+            AudioManager.instance.Play("GlassSmash");
         }
     }
 }

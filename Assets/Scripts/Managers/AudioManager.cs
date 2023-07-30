@@ -34,6 +34,8 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
             s.source.spatialBlend = s.SpatialBlend;
         }
+
+        this.Play("Theme");
     }
 
     public void Play(string name)

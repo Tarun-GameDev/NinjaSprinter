@@ -216,8 +216,8 @@ MonoBehaviour:
     type: 3}
   velocity: 20
   damage: 100
-  timeBetweenShooting: 0.1
-  timeBetweenShots: 0.1
+  timeBetweenShooting: 1
+  timeBetweenShots: 1
   bulletsPerTap: 1
   allowButtonToHold: 0
   allowInvoke: 1
@@ -227,6 +227,8 @@ MonoBehaviour:
   enemyEquipped: 1
   enemyAnimator: {fileID: 2088428457206579675}
   muzzleFlash: {fileID: 3139600804286356654}
+  shooting: 0
+  readyToShoot: 0
   pcControllersOn: 0
 --- !u!1001 &5589252134543354708
 PrefabInstance:
