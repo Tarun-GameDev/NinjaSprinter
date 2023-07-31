@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     Rigidbody rb;
     [SerializeField]
     LayerMask groundLayer;
+    [SerializeField]
     bool isGrounded = true;
     [SerializeField] float raycastDistance = 1f;
     [SerializeField]

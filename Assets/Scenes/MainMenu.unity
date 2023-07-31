@@ -854,8 +854,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 202.98, y: 83.7}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 238.43747, y: 4.166664}
+  m_SizeDelta: {x: 318.6656, y: 0.4981}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &541232351
 MonoBehaviour:
@@ -877,7 +877,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tom Broke The Wall
+  m_text: NINJA SPRINTER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b583c36e8e4be744c95744c7a6261a2b, type: 2}
   m_sharedMaterial: {fileID: 8684919218828085176, guid: b583c36e8e4be744c95744c7a6261a2b,
@@ -911,9 +911,9 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 33
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
