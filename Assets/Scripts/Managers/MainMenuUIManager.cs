@@ -18,7 +18,7 @@ public class MainMenuUIManager : MonoBehaviour
 
     public void PlayButton()
     {
-        SceneManager.LoadScene(PlayerPrefs.GetInt("LevelUnlocked", 1));
+        SceneManager.LoadScene(PlayerPrefs.GetInt("LevelUnlocked", 0) + 1);
     }
 
     public void QuitButton()

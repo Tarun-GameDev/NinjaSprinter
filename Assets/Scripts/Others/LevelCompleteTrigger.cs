@@ -14,11 +14,12 @@ public class LevelCompleteTrigger : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            PlayerPrefs.SetInt("LevelUnlocked", SceneManager.GetActiveScene().buildIndex);
+            if(SceneManager.GetActiveScene().buildIndex != 10)
+                PlayerPrefs.SetInt("LevelUnlocked", SceneManager.GetActiveScene().buildIndex);
+            else
+                PlayerPrefs.SetInt("LevelUnlocked", 0);
             LevelManager.instance.player.LevelCompleted();
             LevelManager.instance.uiManager.LevelCompleted();
         }
-
-
     }
 }
