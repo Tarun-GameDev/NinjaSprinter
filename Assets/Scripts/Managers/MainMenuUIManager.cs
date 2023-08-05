@@ -18,7 +18,10 @@ public class MainMenuUIManager : MonoBehaviour
 
     public void PlayButton()
     {
-        SceneManager.LoadScene(PlayerPrefs.GetInt("LevelUnlocked", 0) + 1);
+        if(UniManager.instance.isSupersonicReady == true)
+        {
+            SceneManager.LoadScene(PlayerPrefs.GetInt("LevelUnlocked", 0) + 1);
+        }        
     }
 
     public void QuitButton()
