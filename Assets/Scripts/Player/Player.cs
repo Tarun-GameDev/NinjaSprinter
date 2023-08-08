@@ -149,6 +149,12 @@ public class Player : MonoBehaviour
         return false;
     }
 
+    private void OnDrawGizmos()
+    {
+        Ray ray = new Ray(transform.position, Vector3.down);
+        Gizmos.DrawRay(ray);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.collider.CompareTag("Obstucle"))

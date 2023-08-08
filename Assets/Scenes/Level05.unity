@@ -716,10 +716,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1787009574, guid: d92ed05f42b063f448cd57cfd791174d, type: 3}
-      propertyPath: enemyAnimator
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7393492819553478332, guid: d92ed05f42b063f448cd57cfd791174d,
         type: 3}
       propertyPath: m_RootOrder

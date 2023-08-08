@@ -57,5 +57,5 @@ MonoBehaviour:
   validateBeforeBuild: 1
   accountEmail: tsrgames.trishader@gmail.com
   selectedGameIndex: 1
-  isTitleSelectedAutomatically: 0
+  isTitleSelectedAutomatically: 1
   wasLoggedIn: 1

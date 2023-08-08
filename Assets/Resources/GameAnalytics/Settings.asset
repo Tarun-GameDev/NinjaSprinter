@@ -26,27 +26,21 @@ MonoBehaviour:
   UserMessagesFailed: 0
   CustomArea: 
   gameKey:
-  - 
   - 567917af16e79f78548f19ba2fe0d915
   secretKey:
-  - 
   - bde0bcc4bc33363498c15e9b664c0de563dec7b8
   Build:
-  - 1.0.4
-  - 1.0.4
+  - 1.0.5
   SelectedPlatformOrganization:
-  - 
   - 
   SelectedPlatformStudio:
   - 
-  - 
   SelectedPlatformGame:
   - 
-  - 
-  SelectedPlatformGameID: ffffffffffffffff
-  SelectedOrganization: 0000000000000000
-  SelectedStudio: 0000000000000000
-  SelectedGame: 0000000000000000
+  SelectedPlatformGameID: ffffffff
+  SelectedOrganization: 00000000
+  SelectedStudio: 00000000
+  SelectedGame: 00000000
   NewVersion: 7.3.24
   Changes: '7.3.24
 
@@ -270,7 +264,7 @@ MonoBehaviour:
   GameName: 
   OrganizationName: 
   OrganizationIdentifier: 
-  EmailGA: 
+  EmailGA: TSR2ninjaSRT@gmail.com
   IntroScreen: 0
   InfoLogEditor: 1
   InfoLogBuild: 1
@@ -285,8 +279,8 @@ MonoBehaviour:
   ResourceItemTypes: []
   ResourceCurrencies: []
   LastCreatedGamePlatform: 0
-  Platforms: 080000000b000000
-  CurrentInspectorState: 1
+  Platforms: 0b000000
+  CurrentInspectorState: 0
   ClosedHints: 
   DisplayHints: 0
   DisplayHintsScrollState: {x: 0, y: 0}
@@ -313,7 +307,7 @@ MonoBehaviour:
   IncludeGooglePlay: 1
   FpsCriticalThreshold: 20
   FpsCirticalSubmitInterval: 1
-  PlatformFoldOut: 0101
+  PlatformFoldOut: 01
   CustomDimensions01FoldOut: 0
   CustomDimensions02FoldOut: 0
   CustomDimensions03FoldOut: 0

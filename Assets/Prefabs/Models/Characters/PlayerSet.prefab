@@ -5558,7 +5558,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 193
-  raycastDistance: 1
+  isGrounded: 1
+  raycastDistance: 1.1
   normalCol: {fileID: 7393492820084155862}
   crouchCol: {fileID: 6040152497832004054}
   dustEffect: {fileID: 1940429882}
