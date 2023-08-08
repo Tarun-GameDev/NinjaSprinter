@@ -1,4 +1,4 @@
-using SupersonicWisdomSDK;
+//using SupersonicWisdomSDK;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,9 +28,9 @@ public class UniManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         // Subscribe
-        SupersonicWisdom.Api.AddOnReadyListener(OnSupersonicWisdomReady);
+        //SupersonicWisdom.Api.AddOnReadyListener(OnSupersonicWisdomReady);
         // Then initialize
-        SupersonicWisdom.Api.Initialize();
+        //SupersonicWisdom.Api.Initialize();
     }
 
     // Update is called once per frame

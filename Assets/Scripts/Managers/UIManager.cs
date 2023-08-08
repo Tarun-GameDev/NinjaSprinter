@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using SupersonicWisdomSDK;
+//using SupersonicWisdomSDK;
 
 public class UIManager : MonoBehaviour
 {
@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour
         RandomButtonPlace();
         timeManager = TimeManager.instance;
 
-        SupersonicWisdom.Api.NotifyLevelStarted(SceneManager.GetActiveScene().buildIndex, null);
+        //SupersonicWisdom.Api.NotifyLevelStarted(SceneManager.GetActiveScene().buildIndex, null);
     }
 
     public void LevelFailed()
@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
         playingMenu.SetActive(false);
         levelFailedMenu.SetActive(true);
 
-        SupersonicWisdom.Api.NotifyLevelFailed(SceneManager.GetActiveScene().buildIndex, null);
+        //SupersonicWisdom.Api.NotifyLevelFailed(SceneManager.GetActiveScene().buildIndex, null);
     }
 
     void RandomButtonPlace()
@@ -79,7 +79,7 @@ public class UIManager : MonoBehaviour
         levelCompletedMenu.SetActive(true);
         playingMenu.SetActive(false);
 
-        SupersonicWisdom.Api.NotifyLevelCompleted(SceneManager.GetActiveScene().buildIndex, null);
+        //SupersonicWisdom.Api.NotifyLevelCompleted(SceneManager.GetActiveScene().buildIndex, null);
     }
 
     public void NextLevelButton()
