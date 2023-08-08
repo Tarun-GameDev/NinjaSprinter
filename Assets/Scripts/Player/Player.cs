@@ -32,6 +32,10 @@ public class Player : MonoBehaviour
     [SerializeField] Transform tyreSpawnPos;
     [SerializeField] GameObject tyrePrefab;
 
+    [Header("PowerUps")]
+    [SerializeField] float shieldLifeTime = 15f;
+    [SerializeField] GameObject shieldObj;
+
     [Header("Audio")]
     [SerializeField] AudioSource jumpAudio;
     [SerializeField] AudioSource crouchAudio;
@@ -167,7 +171,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if(collision.collider.CompareTag("Enemy") && crouching)
+        if(collision.collider.CompareTag("Enemy") )
         {
             collision.collider.GetComponent<EnemyHealth>().Dead();
         }
@@ -217,4 +221,23 @@ public class Player : MonoBehaviour
     {
         Instantiate(tyrePrefab, tyreSpawnPos.position, Quaternion.identity);
     }
+
+    #region PowerUps
+
+    public void ShieldActivate()
+    {
+        StartCoroutine(Shield());
+    }
+
+    IEnumerator Shield()
+    {
+        if (shieldObj != null)
+            shieldObj.SetActive(true);
+        yield return new WaitForSeconds(shieldLifeTime);
+        if (shieldObj != null)
+            shieldObj.SetActive(false);
+    }
+
+
+    #endregion
 }

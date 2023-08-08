@@ -10,11 +10,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject playingMenu;
     [SerializeField] GameObject levelFailedMenu;
     [SerializeField] GameObject levelCompletedMenu;
+    [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject actionButton;
     [SerializeField] Vector2 ButtonRandomLimits;
     bool jumpAction = true;
     TimeManager timeManager;
     bool actionDisabled = false;
+    public static bool gamePaused = false;
 
     private void Start()
     {
@@ -23,6 +25,22 @@ public class UIManager : MonoBehaviour
         timeManager = TimeManager.instance;
 
         //SupersonicWisdom.Api.NotifyLevelStarted(SceneManager.GetActiveScene().buildIndex, null);
+    }
+
+    public void PauseGame()
+    {
+        pauseMenu.SetActive(true);
+        playingMenu.SetActive(false);
+        Time.timeScale = 0f;
+        gamePaused = true;
+    }
+
+    public void ResumeGame()
+    {
+        pauseMenu.SetActive(false);
+        playingMenu.SetActive(true);
+        Time.timeScale = 1f;
+        gamePaused = false;
     }
 
     public void LevelFailed()

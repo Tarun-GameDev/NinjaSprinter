@@ -96,4 +96,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slowMotionTimeScale: 0.3
   InSlowMotion: 0
-  slowMotionVolume: {fileID: 165015708}
+  slowMotionVolume: {fileID: 0}

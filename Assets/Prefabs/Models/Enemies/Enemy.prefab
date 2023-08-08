@@ -79,11 +79,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1929296653d235a41a297d7b0fb1553c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 7
+  attackRange: 10
   enemyGun: {fileID: 5589252136319438850}
   chaseAttackRange: 0
   canAttack: 0
-  playerDistance: 10
+  playerDistance: 13
   animator: {fileID: 2088428457206579675}
 --- !u!54 &5589252135054176598
 Rigidbody:

@@ -23,6 +23,7 @@ public class Bullet : MonoBehaviour
     float life = 3f;
 
     Rigidbody rb;
+    bool fromPlayer = true;
     
     public void StartingForceToBombs()
     {
@@ -47,31 +48,40 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Dead();
-
-        Player playerHealth = collision.collider.GetComponent<Player>();
-        EnemyHealth enemyHealth = collision.collider.GetComponent<EnemyHealth>();
-
-        if (enemyHealth != null)
+        if(fromPlayer)
         {
-            enemyHealth.TakeDamage(damage);
+            EnemyHealth enemyHealth = collision.collider.GetComponent<EnemyHealth>();
+
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(damage);
+            }
         }
-        if (playerHealth != null)
+
+        if(!fromPlayer)
         {
-            playerHealth.TakeDamage(damage); ;
+
+            Player playerHealth = collision.collider.GetComponent<Player>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(damage); ;
+            }
+
         }
+
         Dead();
 
     }
 
     
-    public void Fire(float bulletVelocity,int damageAmount)
+    public void Fire(float _bulletVelocity,int _damageAmount,bool _fromPlayer)
     {
 
         lifeTimer = Time.time;
 
-        velocity = bulletVelocity;
-        damage = damageAmount;
+        velocity = _bulletVelocity;
+        damage = _damageAmount;
+        fromPlayer = _fromPlayer;
 
     }
     

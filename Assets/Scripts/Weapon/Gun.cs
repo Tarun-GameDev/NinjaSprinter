@@ -173,7 +173,7 @@ public class Gun : MonoBehaviour
 
         var go = Instantiate(BulletPrefab, attackPoint.position, attackPoint.rotation);
         var bullet = go.GetComponent<Bullet>();
-        bullet.Fire(velocity,damage);
+        bullet.Fire(velocity,damage,playerEquipped);
 
 
         #endregion

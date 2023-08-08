@@ -1,19 +1,9 @@
 fileFormatVersion: 2
-guid: c62fecbad282bd04fa2eae4ca10c3ff8
+guid: 2095d997998b4ac4b90de0563dc3287a
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Gradient
-    second: {fileID: 2100000, guid: c65955c015d41a54686f244f216194fa, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: GradientSprite
-    second: {fileID: 2100000, guid: c65955c015d41a54686f244f216194fa, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
