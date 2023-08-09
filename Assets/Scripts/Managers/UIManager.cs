@@ -94,10 +94,16 @@ public class UIManager : MonoBehaviour
 
     public void LevelCompleted()
     {
-        levelCompletedMenu.SetActive(true);
-        playingMenu.SetActive(false);
+        StartCoroutine(LevelCompleteActive());
 
         //SupersonicWisdom.Api.NotifyLevelCompleted(SceneManager.GetActiveScene().buildIndex, null);
+    }
+
+    IEnumerator LevelCompleteActive()
+    {
+        yield return new WaitForSeconds(2f);
+        levelCompletedMenu.SetActive(true);
+        playingMenu.SetActive(false);
     }
 
     public void NextLevelButton()

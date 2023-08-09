@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Bullet
   - MoveObstucleCol
+  - MovingObstucle
   layers:
   - Default
   - TransparentFX

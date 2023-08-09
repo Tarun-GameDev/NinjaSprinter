@@ -52,10 +52,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FernelPower: 3
+    - _BaseAlphaMIn: 0.4
+    - _BaseAlphaMax: 0.5
+    - _FernelPower: 4
+    - _FernelPowerMax: 1
+    - _FernelPowerMin: 0.2
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _VertexFrequency: 5
+    - _VertexFrequency: 2
     m_Colors:
     - _BackColor: {r: 0, g: 1.9529412, b: 2, a: 1}
     - _Fernelcolor: {r: 0, g: 21.361254, b: 20.925035, a: 1}

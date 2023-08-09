@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
 
     [Header("PowerUps")]
     [SerializeField] float shieldLifeTime = 15f;
+    [SerializeField] bool inShield = false;
     [SerializeField] GameObject shieldObj;
 
     [Header("Audio")]
@@ -55,10 +56,10 @@ public class Player : MonoBehaviour
         gameOver = false;
         currentHealth = maxHealth;
 
-        Invoke("faj", 1f);
+        Invoke("startRigPos", 1f);
     }
 
-    void faj()
+    void startRigPos()
     {
         gunTarget.localPosition = new Vector3(1.633f, 1.153f, -.49f);
     }
@@ -171,6 +172,11 @@ public class Player : MonoBehaviour
             }
         }
 
+        if(!inShield && collision.collider.CompareTag("MovingObstucle"))
+        {
+            LevelFailed();
+        }
+
         if(collision.collider.CompareTag("Enemy") )
         {
             collision.collider.GetComponent<EnemyHealth>().Dead();
@@ -179,6 +185,9 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (inShield)
+            return;
+
         currentHealth -= damage;
         if (currentHealth <= 0)
                 LevelFailed();
@@ -231,9 +240,11 @@ public class Player : MonoBehaviour
 
     IEnumerator Shield()
     {
+        inShield = true;
         if (shieldObj != null)
             shieldObj.SetActive(true);
         yield return new WaitForSeconds(shieldLifeTime);
+        inShield = false;
         if (shieldObj != null)
             shieldObj.SetActive(false);
     }

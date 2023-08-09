@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6681237882739798740}
   m_Layer: 6
   m_Name: MovingObstucle
-  m_TagString: Obstucle
+  m_TagString: MovingObstucle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
