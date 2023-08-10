@@ -205,6 +205,7 @@ public class Player : MonoBehaviour
         if (levelFailedAudio != null)
             levelFailedAudio.Play();
         LevelManager.instance.uiManager.LevelFailed();
+        CinemachineShake.instance.CameraShake(3f, .4f);
     }
 
     public void LevelCompleted()
@@ -229,6 +230,7 @@ public class Player : MonoBehaviour
     public void SpawnTyre()
     {
         Instantiate(tyrePrefab, tyreSpawnPos.position, Quaternion.identity);
+        CinemachineShake.instance.CameraShake(1f, 2f);
     }
 
     #region PowerUps

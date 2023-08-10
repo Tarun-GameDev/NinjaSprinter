@@ -22,6 +22,7 @@ public class GlassBreak : MonoBehaviour
             if (glassBreakParticle != null)
                 Instantiate(glassBreakParticle, transform.position, Quaternion.identity);
             AudioManager.instance.Play("GlassSmash");
+            CinemachineShake.instance.CameraShake(2f, .4f);
         }
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.23947899, g: 0.579235, b: 0.77270055, a: 1}
+  m_IndirectSpecularColor: {r: 0.15182304, g: 0.35900545, b: 0.5343261, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2452,10 +2452,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1787009574, guid: d92ed05f42b063f448cd57cfd791174d, type: 3}
-      propertyPath: enemyAnimator
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7393492819553478332, guid: d92ed05f42b063f448cd57cfd791174d,
         type: 3}
       propertyPath: m_RootOrder
@@ -2515,11 +2511,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerSet
-      objectReference: {fileID: 0}
-    - target: {fileID: 7393492819635949060, guid: d92ed05f42b063f448cd57cfd791174d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d92ed05f42b063f448cd57cfd791174d, type: 3}
@@ -5229,20 +5220,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1518822042, guid: 5027499b35afa7342ad35639aa3827fb, type: 3}
-      propertyPath: m_text
-      value: 'Level Completed!
-
-        New levels are coming...'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1738878409, guid: 5027499b35afa7342ad35639aa3827fb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1946430287, guid: 5027499b35afa7342ad35639aa3827fb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4744602004380078242, guid: 5027499b35afa7342ad35639aa3827fb,
         type: 3}
       propertyPath: m_Name

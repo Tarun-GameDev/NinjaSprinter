@@ -5259,6 +5259,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7393492819553478332}
+  - component: {fileID: 3670545190688508525}
   m_Layer: 0
   m_Name: PlayerSet
   m_TagString: Untagged
@@ -5284,6 +5285,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3670545190688508525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7393492819553478335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b09a51a3e6e184abb21784b8e7c561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cinemachineVirtualCamera: {fileID: 7393492819687573029}
 --- !u!1 &7393492819635949065
 GameObject:
   m_ObjectHideFlags: 0
@@ -6168,6 +6182,7 @@ GameObject:
   - component: {fileID: 7393492820360552019}
   - component: {fileID: 7393492820360552046}
   - component: {fileID: 7393492820360552016}
+  - component: {fileID: 5580087286560737228}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -6224,6 +6239,23 @@ MonoBehaviour:
   m_YawDamping: 0
   m_RollDamping: 0
   m_AngularDamping: 0
+--- !u!114 &5580087286560737228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7393492820360552018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: e9ce97b7a206dc64d90931ea044e0c72, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 1
+  mNoiseOffsets: {x: -135.68411, y: 51.227448, z: 568.0587}
 --- !u!1 &8135088702152051961
 GameObject:
   m_ObjectHideFlags: 0
