@@ -6,7 +6,8 @@ public class MoveObstucle : MonoBehaviour
 {
     [SerializeField] Rigidbody rb;
     [SerializeField]
-    float moveForce = 1000f;
+    float moveForce = 10f;
+    [SerializeField] Vector3 rotation;
 
     void Start()
     {
@@ -21,9 +22,6 @@ public class MoveObstucle : MonoBehaviour
 
     private void Update()
     {
-        transform.Rotate(new Vector3(Random.Range(0f, 2f), Random.Range(0f, 2f), Random.Range(0f, 2f)));
+        transform.Rotate(rotation * Random.Range(0f, 2f) * Time.deltaTime);
     }
-
-
-
 }

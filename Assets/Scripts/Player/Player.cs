@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using UnityEngine.Playables;
 
 public class Player : MonoBehaviour
 {
@@ -42,7 +43,7 @@ public class Player : MonoBehaviour
     [SerializeField] AudioSource crouchAudio;
     [SerializeField] AudioSource levelWinAudio;
     [SerializeField] AudioSource levelFailedAudio;
-
+    [SerializeField] PlayableDirector endCutSceneDir;
     int currentHealth = 100, maxHealth = 100;
     TimeManager timeManager;
 
@@ -211,6 +212,8 @@ public class Player : MonoBehaviour
     public void LevelCompleted()
     {
         levelCompleted = true;
+        if (endCutSceneDir != null)
+            endCutSceneDir.Play();
         if (levelWinAudio != null)
             levelWinAudio.Play();
         animator.SetBool("move", false);
@@ -227,9 +230,9 @@ public class Player : MonoBehaviour
             StartCoroutine(Crouch());
     }
 
-    public void SpawnTyre()
+    public void SpawnmoveObstucle(GameObject _obstucle,Vector3 _yPosOffset)
     {
-        Instantiate(tyrePrefab, tyreSpawnPos.position, Quaternion.identity);
+        Instantiate(_obstucle, tyreSpawnPos.position + _yPosOffset, Quaternion.identity);
         CinemachineShake.instance.CameraShake(1f, 2f);
     }
 

@@ -5,6 +5,8 @@ using UnityEngine;
 public class MoveObstucleTriggeer : MonoBehaviour
 {
     bool triggered = false;
+    [SerializeField] GameObject obstucle;
+    [SerializeField] Vector3 spawnPosOffset;    //"Use yPos -2.2 for shuriken"
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,7 +16,8 @@ public class MoveObstucleTriggeer : MonoBehaviour
         if(other.CompareTag("MoveObstucleCol"))
         {
             triggered = true;
-            LevelManager.instance.player.SpawnTyre();
+            if(obstucle != null)
+            LevelManager.instance.player.SpawnmoveObstucle(obstucle,spawnPosOffset);
             Invoke("slowMo", .3f);
         }
     }
