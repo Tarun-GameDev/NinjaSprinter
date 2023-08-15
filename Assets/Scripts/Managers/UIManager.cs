@@ -25,7 +25,9 @@ public class UIManager : MonoBehaviour
         timeManager = TimeManager.instance;
 
         //SupersonicWisdom.Api.NotifyLevelStarted(SceneManager.GetActiveScene().buildIndex, null);
+
     }
+
 
     public void PauseGame()
     {

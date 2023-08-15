@@ -5811,6 +5811,7 @@ MonoBehaviour:
   playerDeadEffect: {fileID: 4618025843906179978, guid: 8c2eb3dce2f93444d9451d69449f246b,
     type: 3}
   gunTarget: {fileID: 430779599}
+  touchControllers: 1
   tyreSpawnPos: {fileID: 4088377323616593575}
   tyrePrefab: {fileID: 6681237882739798737, guid: f51438438083684459bb255d6ee30da6,
     type: 3}
@@ -5822,6 +5823,15 @@ MonoBehaviour:
   levelWinAudio: {fileID: 8503414244365165920}
   levelFailedAudio: {fileID: 2673300691365026437}
   endCutSceneDir: {fileID: 8886093141088185841}
+  swipeUp: 0
+  swipeDown: 0
+  startTouchPos: {x: 0, y: 0}
+  currentTouchPos: {x: 0, y: 0}
+  endTouchPos: {x: 0, y: 0}
+  stopTouch: 0
+  Distance: {x: 0, y: 0}
+  swipeRange: 100
+  tapRange: 0
 --- !u!95 &1056800287
 Animator:
   serializedVersion: 5
@@ -6462,7 +6472,7 @@ PlayableDirector:
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 190d67ec974743242b811d24330addc9, type: 2}
   m_InitialState: 0
-  m_WrapMode: 2
+  m_WrapMode: 0
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
@@ -7258,7 +7268,7 @@ PrefabInstance:
     - target: {fileID: 7570068890274395586, guid: 00a26a86ad19a6244b662eb6c8065dbc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.056656584
+      value: -0.056656286
       objectReference: {fileID: 0}
     - target: {fileID: 7570068890274395586, guid: 00a26a86ad19a6244b662eb6c8065dbc,
         type: 3}
@@ -7413,7 +7423,7 @@ PrefabInstance:
     - target: {fileID: 8879528566716807029, guid: 00a26a86ad19a6244b662eb6c8065dbc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.50342405
+      value: 0.50342435
       objectReference: {fileID: 0}
     - target: {fileID: 8879528566716807029, guid: 00a26a86ad19a6244b662eb6c8065dbc,
         type: 3}

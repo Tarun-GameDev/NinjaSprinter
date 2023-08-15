@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject playerModel;
     [SerializeField] ParticleSystem playerDeadEffect;
     [SerializeField] Transform gunTarget;
+    [SerializeField]
+    bool touchControllers = false;
 
     [Header("Tyre Obstucel")]
     [SerializeField] Transform tyreSpawnPos;
@@ -47,6 +49,16 @@ public class Player : MonoBehaviour
     int currentHealth = 100, maxHealth = 100;
     TimeManager timeManager;
 
+    //Touch Controllers
+    bool swipeUp, swipeDown;
+    Vector2 startTouchPos;
+    Vector2 currentTouchPos;
+    Vector2 endTouchPos;
+    bool stopTouch = false;
+    Vector2 Distance;
+
+    float swipeRange = 100;
+
     void Start()
     {
         if(rb == null)
@@ -56,6 +68,7 @@ public class Player : MonoBehaviour
             timeManager = TimeManager.instance;
         gameOver = false;
         currentHealth = maxHealth;
+        swipeRange = 100f;
 
         Invoke("startRigPos", 1f);
     }
@@ -72,6 +85,12 @@ public class Player : MonoBehaviour
 
          isGrounded = CheckGround();
 
+        MyInput();
+    }
+
+
+    void MyInput()
+    {
         #region PcCOntrollers
         if ((Input.GetKeyDown(KeyCode.Space) && isGrounded))
         {
@@ -97,6 +116,39 @@ public class Player : MonoBehaviour
         {
             StartCoroutine(Crouch());
             DisableSlowMotion();
+        }
+        #endregion
+
+        #region TouchCOntrollers
+        if(touchControllers)
+        {
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                startTouchPos = Input.GetTouch(0).position;
+            }
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+            {
+                currentTouchPos = Input.GetTouch(0).position;
+                Distance = currentTouchPos - startTouchPos;
+                if (!stopTouch)
+                {
+                    if (Distance.y > swipeRange)
+                    {
+                        Jump();
+                        stopTouch = true;
+                    }
+                    else if (Distance.y < -swipeRange)
+                    {
+                        StartCoroutine(Crouch());
+                        stopTouch = true;
+                    }
+                }
+            }
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+            {
+                stopTouch = false;
+            }
+
         }
         #endregion
     }
