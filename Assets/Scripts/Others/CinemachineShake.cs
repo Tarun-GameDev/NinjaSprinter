@@ -14,6 +14,8 @@ public class CinemachineShake : MonoBehaviour
         instance = this;
         if(cinemachineVirtualCamera == null)
             cinemachineVirtualCamera = GetComponent<CinemachineVirtualCamera>();
+
+        CameraShake(0, .1f);
     }
 
     public void CameraShake(float _intensity,float _time)

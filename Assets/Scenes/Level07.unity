@@ -2991,6 +2991,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerSet
       objectReference: {fileID: 0}
+    - target: {fileID: 7393492819635949060, guid: d92ed05f42b063f448cd57cfd791174d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.1199992
+      objectReference: {fileID: 0}
+    - target: {fileID: 7393492819687573026, guid: d92ed05f42b063f448cd57cfd791174d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.1199992
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d92ed05f42b063f448cd57cfd791174d, type: 3}
 --- !u!114 &1092993839 stripped

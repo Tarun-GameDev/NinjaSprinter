@@ -16,9 +16,9 @@ public class MoveObstucleTriggeer : MonoBehaviour
         if(other.CompareTag("MoveObstucleCol"))
         {
             triggered = true;
-            if(obstucle != null)
+            if(obstucle != null)           
             LevelManager.instance.player.SpawnmoveObstucle(obstucle,spawnPosOffset);
-            Invoke("slowMo", .3f);
+            Invoke("slowMo", .15f);
         }
     }
 
