@@ -5793,7 +5793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612cc4891ec22784bb174f9840ee2704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 9
   jumpForce: 8
   crouchOffset: {x: 0, y: 1, z: 0}
   groundLayer:

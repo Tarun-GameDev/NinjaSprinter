@@ -5220,6 +5220,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1518822042, guid: 5027499b35afa7342ad35639aa3827fb, type: 3}
+      propertyPath: m_text
+      value: New Levels Coming soon...
+      objectReference: {fileID: 0}
+    - target: {fileID: 1518822042, guid: 5027499b35afa7342ad35639aa3827fb, type: 3}
+      propertyPath: m_fontSize
+      value: 63.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1518822042, guid: 5027499b35afa7342ad35639aa3827fb, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 63.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738878409, guid: 5027499b35afa7342ad35639aa3827fb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946430287, guid: 5027499b35afa7342ad35639aa3827fb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4744602004380078242, guid: 5027499b35afa7342ad35639aa3827fb,
         type: 3}
       propertyPath: m_Name

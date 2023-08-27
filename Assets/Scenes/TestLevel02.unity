@@ -4499,11 +4499,6 @@ PrefabInstance:
       propertyPath: enemyAnimator
       value: 
       objectReference: {fileID: 1716217955}
-    - target: {fileID: 5580087286560737228, guid: d92ed05f42b063f448cd57cfd791174d,
-        type: 3}
-      propertyPath: m_AmplitudeGain
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7393492819553478332, guid: d92ed05f42b063f448cd57cfd791174d,
         type: 3}
       propertyPath: m_RootOrder
@@ -4563,11 +4558,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerSet
-      objectReference: {fileID: 0}
-    - target: {fileID: 7393492820084155864, guid: d92ed05f42b063f448cd57cfd791174d,
-        type: 3}
-      propertyPath: moveSpeed
-      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d92ed05f42b063f448cd57cfd791174d, type: 3}

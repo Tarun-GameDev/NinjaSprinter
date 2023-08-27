@@ -20,8 +20,8 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        actionButton.SetActive(false);
-        RandomButtonPlace();
+        //actionButton.SetActive(false);
+        //RandomButtonPlace();
         timeManager = TimeManager.instance;
 
         //SupersonicWisdom.Api.NotifyLevelStarted(SceneManager.GetActiveScene().buildIndex, null);
@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour
     }
     IEnumerator StartAction()
     {
-        actionButton.SetActive(true);
+        //actionButton.SetActive(true);
         timeManager.StartSlowMotion();
         actionDisabled = false;
         yield return new WaitForSecondsRealtime(1.5f);
@@ -81,7 +81,7 @@ public class UIManager : MonoBehaviour
     {
         if (!actionDisabled)
         {
-            actionButton.SetActive(false);
+            //actionButton.SetActive(false);
             timeManager.StopSlowMotion();
             RandomButtonPlace();
             actionDisabled = true;
