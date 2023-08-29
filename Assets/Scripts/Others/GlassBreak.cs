@@ -8,6 +8,8 @@ public class GlassBreak : MonoBehaviour
     [SerializeField] GameObject glassModel;
     [SerializeField] ParticleSystem glassBreakParticle;
 
+    
+
     private void OnTriggerEnter(Collider other)
     {
         if (triggered)

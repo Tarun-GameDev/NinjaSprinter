@@ -11,6 +11,7 @@ public class TimeManager : MonoBehaviour
     public bool InSlowMotion = false;
     [SerializeField] GameObject slowMotionVolume;
 
+    
 
     float currentslowMoResetTimer,maxSlowMoReseTimer = 3f;
     bool slowMoReset = false;
@@ -29,6 +30,7 @@ public class TimeManager : MonoBehaviour
 
     private void Start()
     {
+
         startTimeScale = 1f;
         startFixedDeltaTime = 0.02f;
 
