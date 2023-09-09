@@ -63,6 +63,4 @@ public class ProceduralMapGenerator : MonoBehaviour
     {
         Instantiate(buildingsPrefabs[_building], _endPoint + _pos, Quaternion.identity, this.transform);
     }
-
-
 }
